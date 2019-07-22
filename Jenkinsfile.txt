@@ -6,14 +6,14 @@ pipeline {
         stage('Compile') {
             steps {
                 echo "Compiling..."
-                sh "/home/ec2-user/sbt/bin/sbt compile"
+                sudo sh "/home/ec2-user/sbt/bin/sbt compile"
             }
         }
 
         stage('Package') {
             steps {
                 echo "Packaging..."
-                sh "/home/ec2-user/sbt/bin/sbt package"
+                sudo sh "/home/ec2-user/sbt/bin/sbt package"
             }
         }
 
