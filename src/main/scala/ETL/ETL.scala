@@ -16,7 +16,7 @@ object ETL_O {
 
     temp.write.option("header","true").csv("s3://s3-test-550-2019/test")
     val I  = dat.spark_.read.option("inferSchema", "true").option("header","true").csv("s3://s3-test-550-2019/test")
-    I.show(30)
+    I.show(10)
 
   }
 
