@@ -6,12 +6,12 @@ pipeline {
         stage('Package') {
             steps {
                 echo "Packaging..."
-                sh "/usr/share/sbt/bin/sbt -mem 1024 package"
+                sh "/var/lib/jenkins/workspace/"
             }
         }
         stage('Upload') {
 
-                dir('path/to/your/project/workspace'){
+                dir('/var/lib/jenkins/workspace'){
 
                     pwd(); //Log current directory
 
