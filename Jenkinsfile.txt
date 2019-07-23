@@ -9,22 +9,6 @@ pipeline {
                 sh "/var/lib/jenkins/workspace/"
             }
         }
-        stage('Upload') {
-
-                dir('/var/lib/jenkins/workspace'){
-
-                    pwd(); //Log current directory
-
-                    withAWS(region:'us-east-1a',credentials:'S3_full_access') {
-
-                         def identity=awsIdentity();//Log AWS credentials
-
-                        // Upload files from working directory 'dist' in your project workspace
-                        s3Upload(file:'ss_gj_test_01_2.12-0.1.jar', bucket:"s3-test-550-2019",path:'/var/lib/jenkins/workspace/Pipe_01/target/scala-2.12/ss_gj_test_01_2.12-0.1.jar');
-                    }
-
-                };
-            }
 
     }
 }
