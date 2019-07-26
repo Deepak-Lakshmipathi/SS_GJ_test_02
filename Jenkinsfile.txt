@@ -21,6 +21,12 @@ pipeline {
                 sh "airflow initdb"
              }
         }
+        stage ("wait_for_db") {
+            steps {
+                echo "Waiting"
+                sleep(time:10,unit:"SECONDS")
+            }
+        }
         stage('scheduler') {
              steps {
                 echo "Initializing scheduler..."
