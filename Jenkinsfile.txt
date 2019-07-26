@@ -60,6 +60,13 @@ pipeline {
                 sh "airflow trigger_dag Spark_cluser_job_test02"
              }
         }
+        stage ("time to chech web UI") {
+            steps {
+                echo "Waiting"
+                sleep(time:50,unit:"SECONDS")
+            }
+        }
+
 
     }
 }
