@@ -21,10 +21,10 @@ pipeline {
                 sh "airflow initdb"
              }
         }
-        stage ("wait_for_db") {
+        stage ("set source") {
             steps {
-                echo "Waiting"
-                sleep(time:10,unit:"SECONDS")
+                echo "src"
+                sh "source ~/.bash_profile"
             }
         }
         stage('scheduler') {
