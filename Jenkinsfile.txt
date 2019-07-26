@@ -15,6 +15,30 @@ pipeline {
                 sh "aws s3 cp /var/lib/jenkins/workspace/Pipe_01/target/scala-2.12/ss_gj_test_01_2.12-0.1.jar s3://s3-test-550-2019/ss_gj_test_01_2.12-0.1.jar"
              }
         }
+        stage('upload') {
+             steps {
+                echo "initializing airflow db..."
+                sh "airflow initdb"
+             }
+        }
+        stage('upload') {
+             steps {
+                echo "Initializing scheduler..."
+                sh "airflow scheduler &"
+             }
+        }
+        stage('upload') {
+             steps {
+                echo "Initializing webserver..."
+                sh "airflow webserver -p 2020 &"
+             }
+        }
+        stage('upload') {
+             steps {
+                echo "running emr job..."
+                sh "airflow trigger_dag Spark_cluser_job_test02"
+             }
+        }
 
     }
 }
