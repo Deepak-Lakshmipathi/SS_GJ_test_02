@@ -56,6 +56,7 @@ pipeline {
         stage('run dag') {
              steps {
                 echo "running emr job..."
+                sh "airflow unpause Spark_cluser_job_test02"
                 sh "airflow trigger_dag Spark_cluser_job_test02"
              }
         }
