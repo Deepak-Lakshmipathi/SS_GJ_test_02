@@ -21,12 +21,6 @@ pipeline {
                 sh "airflow initdb"
              }
         }
-        stage ("set source") {
-            steps {
-                echo "src"
-                sh "source /home/ec2-user/.bash_profile"
-            }
-        }
         stage('scheduler') {
              steps {
                 echo "Initializing scheduler..."
