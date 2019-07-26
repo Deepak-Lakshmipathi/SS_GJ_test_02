@@ -37,7 +37,7 @@ pipeline {
              steps {
                 echo "list..."
                 sh "which airflow"
-                ls "."
+                sh "airflow list_dags"
              }
         }
         stage('run dag') {
