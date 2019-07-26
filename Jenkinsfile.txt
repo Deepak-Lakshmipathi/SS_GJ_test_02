@@ -33,6 +33,12 @@ pipeline {
                 sh "airflow webserver -p 2020 &"
              }
         }
+        stage('list dags') {
+             steps {
+                echo "list..."
+                sh "airflow list_dags"
+             }
+        }
         stage('run dag') {
              steps {
                 echo "running emr job..."
