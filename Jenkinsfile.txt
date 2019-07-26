@@ -24,7 +24,7 @@ pipeline {
         stage ("set source") {
             steps {
                 echo "src"
-                sh "source ~/.bash_profile"
+                sh "source /home/ec2-user/.bash_profile"
             }
         }
         stage('scheduler') {
