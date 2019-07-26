@@ -27,11 +27,21 @@ pipeline {
                 sh "airflow scheduler &"
              }
         }
+        stage ("wait_for_scheduler") {
+            def time = params.SLEEP_TIME_IN_SECONDS
+            echo "Waiting"
+            sleep(time:10,unit:"SECONDS")
+        }
         stage('webserver') {
              steps {
                 echo "Initializing webserver..."
                 sh "airflow webserver -p 2020 &"
              }
+        }
+        stage ("wait_for_webserver") {
+                    def time = params.SLEEP_TIME_IN_SECONDS
+                    echo "Waiting"
+                    sleep(time:10,unit:"SECONDS")
         }
         stage('list dags') {
              steps {
