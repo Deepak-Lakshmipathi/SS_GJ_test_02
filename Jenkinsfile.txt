@@ -56,7 +56,6 @@ pipeline {
                 echo "list..."
                 sh "which airflow"
                 sh "airflow list_dags"
-                ls "/home/ec2-user/airflow/dags"
              }
         }
         stage('run dag') {
