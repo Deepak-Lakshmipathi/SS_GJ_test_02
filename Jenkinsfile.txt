@@ -49,7 +49,7 @@ pipeline {
              steps {
                 echo "running emr job..."
                 sh "airflow unpause Spark_cluser_job_test02"
-                sh "airflow trigger_dag Spark_cluser_job_test02 -e 2019-07-26"
+                sh "airflow trigger_dag Spark_cluser_job_test02 -e 2019-07-25"
              }
         }
         stage ("time to chech web UI") {
