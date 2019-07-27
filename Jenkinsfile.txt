@@ -55,7 +55,7 @@ pipeline {
         stage ("time to chech web UI") {
             steps {
                 echo "Waiting"
-                sleep(time:40,unit:"MINUTES")
+                sleep(time:120,unit:"SECONDS")
             }
         }
 
