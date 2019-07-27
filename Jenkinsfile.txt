@@ -36,7 +36,7 @@ pipeline {
         stage('webserver') {
              steps {
                 echo "Initializing webserver..."
-                sh "airflow webserver -p 2020 &"
+                sh "airflow webserver -p 2021 &"
              }
         }
         stage ("wait_for_webserver") {
