@@ -60,6 +60,12 @@ pipeline {
                 sh "airflow trigger_dag Spark_cluser_job_test02"
              }
         }
+        stage('list running tasks') {
+             steps {
+                echo "list..."
+                sh "airflow list_tasks Spark_cluser_job_test02"
+             }
+        }
         stage ("time to chech web UI") {
             steps {
                 echo "Waiting"
